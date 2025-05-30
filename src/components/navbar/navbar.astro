@@ -7,24 +7,20 @@ import { t } from "i18next";
 
 export const menuitems = [
 	{
-		title: "Sub items",
-		children: [
-			{ title: "Subitem 1", path: "#" },
-			{ title: "Subitem 2", path: "#" },
-			{ title: "Subitem 3", path: "#" },
-		],
+		title: "How to save TikTok video?",
+		path: "/how-to-download-tiktok-video-without-watermark",
 	},
 	{
-		title: "header.pricing",
-		path: "/pricing",
+		title: "Tiktok Downloader",
+		path: "/tiktok-video-downloader",
 	},
 	{
-		title: "header.blog",
-		path: "/blog",
+		title: "Tiktok Story Downloader",
+		path: "/tiktok-story-downloader",
 	},
-	{
-		title: "header.contact",
-		path: "/contact",
+{
+		title: "TikTok Photo Downloader",
+		path: "/tiktok-photo-downloader",
 	},
 ];
 ---
@@ -33,12 +29,8 @@ export const menuitems = [
 	x-data="{open: window.innerWidth < 768 ? false : true}"
 	class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8 z-10 md:pt-2 relative">
 	<div class="p-4 flex flex-row items-center justify-between">
-		<a
-			href={localizePath("/")}
-			class="flex gap-3 items-center text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark:text-white focus:outline-none focus:shadow-outline">
-			<Icon name="logo" width="30" class="dark:invert" alt="Logo" />
-			Astros
-		</a>
+		<a href={localizePath("/")} class="flex gap-3 items-center text-xl font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark:text-white focus:outline-none focus:shadow-outline">
+			<img src="/images/tiktokio-logo.webp" height="83" width="235" alt="Tiktokio Tiktok Downloader"></a>
 		<button class="md:hidden text-gray-500 w-10 h-10 relative focus:outline-none" @click="open = !open">
 			<span class="sr-only">Open main menu</span>
 			<div class="block w-5 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
@@ -98,30 +90,7 @@ export const menuitems = [
 								x-transition:leave-start="transform opacity-100 scale-100"
 								x-transition:leave-end="transform opacity-0 scale-95"
 								class="absolute mt-2 bg-white right-0 w-full origin-top-right rounded-md md:w-48 outline-2 border border-gray-300">
-								<div class="px-2 py-2 rounded-md shadow dark:bg-gray-800">
-									{item.children.map((subitem) => (
-										<Link
-											href={localizePath(subitem.path)}
-											style="hover"
-											size="sm"
-											class="block"
-											x-data="{ isActive: false }"
-											x-init={`() => {
-												const path = $el.getAttribute('data-path');
-												const checkSubPath = () => {
-													isActive = window.location.pathname === path ||
-																window.location.pathname === path + '/' ||
-																window.location.pathname === '/it' + path ||
-																window.location.pathname === '/it' + path + '/';
-												};
-												document.removeEventListener('astro:page-load', checkSubPath);
-												document.addEventListener('astro:page-load', checkSubPath);
-											}`}
-											x-bind:class="{ 'bg-gray-200 dark:bg-gray-600': isActive }">
-											{subitem.title}
-										</Link>
-									))}
-								</div>
+								
 							</div>
 						</div>
 					) : (
@@ -148,14 +117,6 @@ export const menuitems = [
 					),
 				)
 			}
-		</div>
-		<div class="mt-4 md:mt-0 flex flex-col md:flex-row gap-4">
-			<Link href="/login" style="outline" class="md:px-3 md:py-2 leading-6">
-				{t("header.secondary_button_text")}
-			</Link>
-			<Link href="https://github.com/zankhq/astros" class="md:px-3 md:py-2 leading-6">
-				{t("header.primary_button_text")}
-			</Link>
 		</div>
 	</nav>
 </div>
