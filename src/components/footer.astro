@@ -12,7 +12,7 @@ import { t } from "i18next";
 		
 		<ul role="list" class="flex flex-wrap items-center justify-center gap-4 py-4 text-white dark:text-white sm:gap-8">
 			<li role="listitem">
-				<a href={localizePath("/")} class="duration-300 text-sm leading-6 text-white dark:text-white hover:text-white dark:hover:text-white">Home</a>
+				<a href={localizePath("/")} class="duration-300 text-base leading-6 text-white dark:text-white hover:text-white dark:hover:text-white">Home</a>
 			</li>
 			{
 				menuitems.map(
@@ -20,7 +20,7 @@ import { t } from "i18next";
 						item &&
 						item.path && (
 							<li role="listitem">
-								<a href={localizePath(item.path)} class="duration-300 hover:text-white dark:hover:text-white">
+								<a href={localizePath(item.path)} class="duration-300 text-base leading-6 text-white dark:text-white hover:text-white dark:hover:text-white">
 									{t(item.title)}
 								</a>
 							</li>
