@@ -110,7 +110,7 @@ export const menuitems = [
 								document.removeEventListener('astro:page-load', checkPath);
 								document.addEventListener('astro:page-load', checkPath);
 							}`}
-							x-bind:class="{ 'bg-gray-200 dark:bg-gray-600': isActive }"
+							x-bind:class="{ 'dark:bg-gray-600': isActive }"
 							data-path={item.path}>
 							{t(item.title)}
 						</Link>
