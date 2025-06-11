@@ -40,9 +40,12 @@ export async function getStaticPaths() {
 }
 // Get the post directly from the prop on render
 const { posts, tag, lang } = Astro.props;
+const title = `Posts tagged with "${tag}"`;
+const description = `Browse all blog posts tagged with "${tag}".`;
 ---
 
-<Layout title="Blog Posts for Tags">{tag}
+<Layout title={title} description={description} />
+
 	<Container>
 		<Sectionhead>
 			<Fragment slot="title">#{tag}</Fragment>
