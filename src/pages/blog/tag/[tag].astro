@@ -42,7 +42,7 @@ export async function getStaticPaths() {
 const { posts, tag, lang } = Astro.props;
 ---
 
-<Layout title="Blog">
+<Layout title="Blog Posts for Tags">{tag}
 	<Container>
 		<Sectionhead>
 			<Fragment slot="title">#{tag}</Fragment>
