@@ -40,10 +40,11 @@ export async function getStaticPaths() {
 const { posts, category, lang } = Astro.props;
 ---
 
-<Layout title="Blog">
+<Layout  title="TikTokio - Blog posts for {category}" description="Find the All Posts from {category}">
+
 	<Container>
 		<Sectionhead>
-			<Fragment slot="title">#{category}</Fragment>
+			<Fragment slot="title">{category}</Fragment>
 			<Fragment slot="desc">We write about building startups and thoughts going on our mind.</Fragment>
 		</Sectionhead>
 		<Posts posts={posts} />
