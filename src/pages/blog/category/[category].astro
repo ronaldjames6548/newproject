@@ -6,6 +6,7 @@ import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
 import Layout from "@layouts/Layout.astro";
 import i18next, { changeLanguage } from "i18next";
+const pagedesc = "Find the Latest Blog Posts for";
 
 changeLanguage("en");
 
@@ -38,10 +39,11 @@ export async function getStaticPaths() {
 }
 // Get the post directly from the prop on render
 const { posts, category, lang } = Astro.props;
+const title = `Find the Posts in Category: ${category}`;
+const description = `Explore posts filed under "${category}" category.`;
 ---
 
-<Layout  title="TikTokio - Blog posts" description="Find the All Posts from">
-
+<Layout title={title} description={description}>
 	<Container>
 		<Sectionhead>
 			<Fragment slot="title">{category}</Fragment>
