@@ -39,8 +39,8 @@ export async function getStaticPaths() {
 }
 // Get the post directly from the prop on render
 const { posts, category, lang } = Astro.props;
-const title = `Find the Posts in Category: ${category}`;
-const description = `Explore posts filed under "${category}" category.`;
+const title = `Find the Posts in ${category} category from Tiktokio `;
+const description = `Explore posts filed under "${category}" category - Tiktokio.`;
 ---
 
 <Layout title={title} description={description}>
