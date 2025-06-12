@@ -1,0 +1,35 @@
+---
+import Container from "@components/container.astro";
+import Hero from "@components/fdhero.astro";
+import Layout from "@layouts/Layout.astro";
+import Features from "@components/fdfeatures.astro";
+import Newsletter from "@components/fdnewsletter.astro";
+import Testimonials from "@components/fdtestimonials.astro";
+import Faq from "@components/faq.astro";
+
+import { changeLanguage } from "i18next";
+import { t, changeLanguage } from "i18next";
+changeLanguage("en");
+
+const title = `Tiktokio - Download TikTok photos and slideshow without watermark`;
+const description = `TikTok Photo Downloader is a tool to download TikTok photo and slideshow without watermark, download TikTok photos and slideshow videos without logo.`;
+
+---
+<Layout title={title} description={description}>
+<Container>
+		<Hero heading="Tiktokio - TikTok Photo and Slideshow Downloader " subheading="Download TikTok Slideshow and Photo Without Watermark Online"/>
+    <div class="content">
+      <div class="relative p-4">
+        <div class="max-w-screen-xl mx-auto">
+          <div class="mt-3 rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
+                <Features />
+                <Newsletter />
+                <Testimonials />
+                <Faq />
+
+          </div>
+       </div>
+      </div>
+</div>
+</Container>
+</Layout>

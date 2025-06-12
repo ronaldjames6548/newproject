@@ -1,0 +1,36 @@
+---
+import Container from "@components/container.astro";
+import Hero from "@components/hero.astro";
+import Layout from "@layouts/Layout.astro";
+import Features from "@components/tdfeatures.astro";
+import Newsletter from "@components/tdnewsletter.astro";
+import Testimonials from "@components/tdtestimonials.astro";
+import Faq from "@components/faq.astro";
+
+import { changeLanguage } from "i18next";
+import { t, changeLanguage } from "i18next";
+changeLanguage("en");
+
+const title = `TikTokio - Download TikTok Videos in MP4 without Watermark`;
+const description = `TikTokio is Tiktok video downloader to online download tiktok videos without watermark easily, download video from tiktok, free download tiktok video in mp4.`;
+
+
+---
+<Layout title={title} description={description}>
+<Container>
+    <Hero heading="TikTok Video Downloader Online" subheading="Download and Save TikTok Videos Without Watermark."/>
+    <div class="content">
+      <div class="relative p-4">
+        <div class="max-w-screen-xl mx-auto">
+          <div class="mt-3 rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
+                <Features />
+                <Newsletter />
+                <Testimonials />
+                <Faq />
+
+          </div>
+       </div>
+      </div>
+</div>
+</Container>
+</Layout>
