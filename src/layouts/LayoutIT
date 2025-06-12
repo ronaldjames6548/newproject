@@ -1,0 +1,74 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import { pwaInfo } from "virtual:pwa-info";
+import Footer from "@components/footer.astro";
+import Navbar from "@components/navbar/navbar.astro";
+import "@fontsource-variable/inter";
+import { HeadHrefLangs } from "astro-i18next/components";
+import { SEO } from "astro-seo";
+import i18next from "i18next";
+
+export interface Props {
+	title?: string;
+	lang?: string;
+}
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+
+const resolvedImageWithDomain = new URL(
+	"/meta/opengraph.png",
+	Astro.site,
+).toString();
+
+const { title, lang = null } = Astro.props;
+
+const makeTitle = title
+	? `${title}`
+	: "TikTokio - TikTok Downloader - Scarica video TikTok senza filigrana";
+---
+<!doctype html>
+<html lang={lang ?? i18next.language}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="icon" type="image/ico+xml" href="/favicon.ico" />
+		<HeadHrefLangs />
+
+		<!-- Global CSS -->
+			<link onload="this.media='all'" href="/style.css" rel="stylesheet">
+		<SEO
+			title={makeTitle}
+			description="TikTokio è uno strumento per scaricare video da TikTokio, che consente di scaricare online video di TikTok senza filigrana in modo semplice, scaricare video da TikTok e scaricare gratuitamente video di TikTok in formato mp4."
+			canonical={canonicalURL}
+			openGraph={{
+				basic: {
+					url: canonicalURL,
+					type: "website",
+					title: `TikTokio - TikTok Downloader - Scarica video TikTok senza filigrana`,
+					image: resolvedImageWithDomain,
+				},
+				image: {
+					alt: "TikTokio - TikTok Downloader - Scarica video TikTok senza filigrana",
+				},
+			}}
+		/>
+
+		
+
+		{pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
+		<script src="/src/pwa.ts"></script>
+	</head>
+	<body class="bg-gradient-to-b from-gray-900 to-gray-800">
+		<Navbar />
+		<slot />
+		<Footer />
+		<style is:global>
+			/* Improve Page speed */
+			/* https://css-tricks.com/almanac/properties/c/content-visibility/ */
+			img {
+				content-visibility: auto;
+			}
+		</style>
+	</body>
+</html>
